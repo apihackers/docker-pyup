@@ -1,5 +1,11 @@
 FROM alpine:3.7
 
+ARG VCS_REF
+ARG BUILD_DATE
+
+LABEL org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.build-date=$BUILD_DATE
+
 COPY requirements.pip /tmp/requirements.pip
 
 RUN apk add --no-cache python3 ca-certificates && \
